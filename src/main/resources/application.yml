@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5436/postgres
+    username: postgres
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 1
+      max-lifetime: 1800000
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        generate_statistics: false
+        default_schema: public
+        jdbc:
+          batch_size: 10
+          lob:
+            non_contextual_creation: true
+        ddl-auto: update
+        hbm2dll:
+          create_namespaces: true
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        order_inserts: true
+        order_updates: true
+    show-sql: true
+    open-in-view: false
